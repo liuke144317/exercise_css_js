@@ -38,7 +38,23 @@ let add = function (x) {
         return x+y
     }
 }
-var addItem = add(1)
-var add_value = addItem(2)
+let addItem = add(1)
+let add_value = addItem(2)
 console.log('add_value',add_value)
 
+/*function getUrl(service,context,api){
+    return service + context + api;
+}
+let loginUrl = getUrl('http://localhost:8080/','auth','/login')
+let logoutUrl = getUrl('http://localhost:8080/','auth','/logout')*/
+
+let getUrl = function(location,type){
+    return function(address) {
+        return location+' : '+type+' : '+address
+    }
+}
+let newUrl = getUrl('http://localhost:8080/','auth')
+let newUrl1 = newUrl('/login')
+let newUrl2 = newUrl('/logout')
+console.log('newUrl1',newUrl1)
+console.log('newUrl2',newUrl2)
